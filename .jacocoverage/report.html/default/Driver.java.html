@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Driver.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Es2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Driver.java</span></div><h1>Driver.java</h1><pre class="source lang-java linenums">/**
+ * @author Johnny Chung
+ *
+ * @author Erik Biederstadt (original)
+ * @author Patrick Abou Gharib (original)
+ *
+ * Driver class to run game
+ */
+import java.util.*;
+<span class="nc" id="L10">public class Driver {</span>
+
+
+    public static void main(String[] args) {
+
+        //setup game stats
+<span class="fc" id="L16">        Player player = new Player();</span>
+<span class="fc" id="L17">        Boss boss = new Boss();</span>
+<span class="fc" id="L18">        int turn = 1;</span>
+<span class="fc" id="L19">        int choice = -1;</span>
+
+
+<span class="fc" id="L22">        System.out.println(&quot;Welcome to the game!&quot;);</span>
+<span class="fc" id="L23">        Scanner input = new Scanner(System.in);</span>
+
+<span class="fc" id="L25">        promptClassSelection(input, choice, player);</span>
+
+<span class="fc" id="L27">        player.displayAttributes();</span>
+
+        //spawn boss
+<span class="fc" id="L30">        System.out.println(&quot;\nSpawning boss! Get Ready!&quot;);</span>
+<span class="fc" id="L31">        boss = new Boss(player);</span>
+
+        //keep playing while player and boss still alive
+<span class="pc bpc" id="L34" title="1 of 4 branches missed.">        while(player.getHealth() &gt; 0 &amp;&amp; boss.getHealth() &gt; 0) {</span>
+<span class="fc" id="L35">            System.out.println(&quot;------------------------------&quot;);</span>
+<span class="fc" id="L36">            System.out.println(&quot;\nTURN: &quot; + turn);</span>
+<span class="fc" id="L37">            boss.displayAttributes();</span>
+<span class="fc" id="L38">            player.displayAttributes();</span>
+<span class="fc" id="L39">            System.out.println(&quot;NOTE: every 2 turns survived increases your HP&quot;);</span>
+
+<span class="fc" id="L41">            System.out.println(&quot;\n1| Physical Attack\n&quot; +</span>
+                    &quot;2| Magical Attack\n&quot; +
+                    &quot;3| Quit game&quot;);
+<span class="fc" id="L44">            System.out.print(&quot;Enter a choice: &quot;);</span>
+
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            while(!input.hasNextInt()) {</span>
+<span class="fc" id="L47">                input.next();</span>
+<span class="fc" id="L48">                System.out.print(&quot;Enter a valid integer: &quot;);</span>
+            }
+<span class="fc" id="L50">            choice =  input.nextInt();</span>
+
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            if(choice == 1) {</span>
+<span class="fc" id="L53">                System.out.printf(&quot;\nYou did %d damage!\n&quot;, player.getStrength());</span>
+<span class="fc" id="L54">                boss.setHealth(boss.getHealth() - player.getStrength());</span>
+<span class="fc" id="L55">                boss.bossAttack(player);</span>
+            }
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">            else if(choice == 2) {</span>
+<span class="fc" id="L58">                System.out.printf(&quot;\nYou did %d damage!\n&quot;, player.getIntelligence());</span>
+<span class="fc" id="L59">                boss.setHealth(boss.getHealth() - player.getIntelligence());</span>
+<span class="fc" id="L60">                boss.bossAttack(player);</span>
+            }
+<span class="nc bnc" id="L62" title="All 2 branches missed.">            else if(choice == 3) {</span>
+<span class="nc" id="L63">                System.out.println(&quot;quitting game...&quot;);</span>
+<span class="nc" id="L64">                break;</span>
+            }
+            else {
+<span class="nc" id="L67">                System.out.print(&quot;Enter a valid integer:&quot;);</span>
+            }
+
+            //increase health every 2 turns
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            if((turn%2) == 0) {</span>
+<span class="fc" id="L72">                player.setHealth(player.getHealth() + 10);</span>
+            }
+<span class="fc" id="L74">            turn++;</span>
+        }
+
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">        if(player.getHealth() &lt;= 0) {</span>
+<span class="nc" id="L78">            System.out.println(&quot;YOU DIED&quot;);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            if(turn &lt;= 3)</span>
+<span class="nc" id="L80">                System.out.println(&quot;lol git gud&quot;);</span>
+
+        }
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        else if (boss.getHealth() &lt;= 0) {</span>
+<span class="fc" id="L84">            System.out.printf(&quot;You won the game in %d turns!&quot;, turn);</span>
+        }
+
+<span class="fc" id="L87">    }</span>
+
+
+    //ask user for class selection
+    private static void promptClassSelection(Scanner input, int choice, Player player){
+
+        while(true){
+
+<span class="fc" id="L95">            System.out.println( &quot;1| Select Warrior Class\n&quot; +</span>
+                    &quot;2| Select Mage Class\n&quot; +
+                    &quot;3| Select Thief Class&quot; );
+
+<span class="fc" id="L99">            System.out.print(&quot;Enter a choice: &quot;);</span>
+
+            //check if integer input
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            while(!input.hasNextInt()){</span>
+<span class="fc" id="L103">                input.next();</span>
+<span class="fc" id="L104">                System.out.print(&quot;Enter a valid integer: &quot;);</span>
+            }
+
+<span class="fc" id="L107">            choice = input.nextInt();</span>
+
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">            if(choice == 1){</span>
+                //create warrior
+<span class="nc" id="L111">                player.createWarrior(5);</span>
+<span class="nc" id="L112">                break;</span>
+            }
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">            else if(choice == 2){</span>
+                //create mage
+<span class="nc" id="L116">                player.createMage();</span>
+<span class="nc" id="L117">                break;</span>
+            }
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            else if(choice == 3){</span>
+                //create thief
+<span class="fc" id="L121">                player.createThief(100);</span>
+<span class="fc" id="L122">                break;</span>
+            }
+            else {
+<span class="nc" id="L125">                System.out.println(&quot;Out of range&quot;);</span>
+            }
+        }
+<span class="fc" id="L128">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
