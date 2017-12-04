@@ -8,47 +8,78 @@
  * Boss class
  */
 import java.util.*;
+/**
+ * Classe Boss
+ * @author carlos .
+ */
 public class Boss extends Character{
 
     //boss attributes (unique from Character)
     private int accuracy;
 
-    //Constructor
+    //
+    /**
+     * Constructor sem receber parametros
+     */
     public Boss(){
-<span class="fc" id="L18">        super();</span>
-<span class="fc" id="L19">        this.accuracy = -1;</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L25">        super();</span>
+<span class="fc" id="L26">        this.accuracy = -1;</span>
+<span class="fc" id="L27">    }</span>
 
-    //constructor scaling with player
-<span class="fc" id="L23">    public Boss(Player player) {</span>
-<span class="fc" id="L24">        this.setHealth( player.getHealth() * 20);</span>
-<span class="fc" id="L25">        this.setStrength(player.getStrength() * 2);</span>
-<span class="fc" id="L26">        this.accuracy = 100 - 2*(player.getEvade());</span>
+    //
+    /**
+     * constructor scaling with player
+     * @param player player ja criado
+     */
+<span class="fc" id="L34">    public Boss(Player player) {</span>
+<span class="fc" id="L35">        this.setHealth( player.getHealth() * 20);</span>
+<span class="fc" id="L36">        this.setStrength(player.getStrength() * 2);</span>
+<span class="fc" id="L37">        this.accuracy = 100 - 2*(player.getEvade());</span>
 
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L39">    }</span>
 
-    //get functions for Boss attributes
-<span class="fc" id="L31">    public int getAccuracy(){ return this.accuracy; }</span>
+    
+    /**
+     * 
+     * @return get functions for Boss attributes
+     */
+<span class="fc" id="L46">    public int getAccuracy(){ return this.accuracy; }</span>
+
+    /**
+     * defenir accuracy
+     * @param accuracy a
+     */
+    public void setAccuracy(int accuracy) {
+<span class="nc" id="L53">        this.accuracy = accuracy;</span>
+<span class="nc" id="L54">    }</span>
 
 
+    /**
+     * Imprimir os atributos
+     */
     public void displayAttributes(){
-<span class="fc" id="L35">        System.out.println( &quot;\nBoss \n&quot;    +</span>
-<span class="fc" id="L36">                &quot;HP : &quot; + this.getHealth() + &quot;\n&quot; +</span>
-<span class="fc" id="L37">                &quot;STR: &quot; + this.getStrength());</span>
-<span class="fc" id="L38">    }</span>
+<span class="fc" id="L61">        System.out.println( &quot;\nBoss \n&quot;    +</span>
+<span class="fc" id="L62">                &quot;HP : &quot; + this.getHealth() + &quot;\n&quot; +</span>
+<span class="fc" id="L63">                &quot;STR: &quot; + this.getStrength());</span>
+<span class="fc" id="L64">    }</span>
 
+    /**
+     * Ataque do boss
+     * @param player Player a ser atacado
+     * 
+     */
     public void bossAttack(Player player){
-<span class="fc" id="L41">        Random random = new Random();</span>
-<span class="fc" id="L42">        int chanceToHit = random.nextInt(100);;</span>
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if(chanceToHit &lt; this.getAccuracy()) {</span>
-<span class="nc" id="L44">            System.out.printf(&quot;The boss retaliates and does %d damage!\n&quot;, this.getStrength());</span>
-<span class="nc" id="L45">            player.setHealth(player.getHealth() - this.getStrength());</span>
+<span class="fc" id="L72">        Random random = new Random();</span>
+<span class="fc" id="L73">        int chanceToHit = random.nextInt(100);;</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if(chanceToHit &lt; this.getAccuracy()) {</span>
+<span class="fc" id="L75">            System.out.printf(&quot;The boss retaliates and does %d damage!\n&quot;, this.getStrength());</span>
+<span class="fc" id="L76">            player.setHealth(player.getHealth() - this.getStrength());</span>
         }
         else {
-<span class="fc" id="L48">            System.out.println(&quot;The boss missed its counterattack!\n&quot;);</span>
+<span class="fc" id="L79">            System.out.println(&quot;The boss missed its counterattack!\n&quot;);</span>
         }
 
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L82">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

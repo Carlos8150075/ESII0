@@ -8,18 +8,29 @@
  * Boss class
  */
 import java.util.*;
+/**
+ * Classe Boss
+ * @author carlos .
+ */
 public class Boss extends Character{
 
     //boss attributes (unique from Character)
     private int accuracy;
 
-    //Constructor
+    //
+    /**
+     * Constructor sem receber parametros
+     */
     public Boss(){
         super();
         this.accuracy = -1;
     }
 
-    //constructor scaling with player
+    //
+    /**
+     * constructor scaling with player
+     * @param player player ja criado
+     */
     public Boss(Player player) {
         this.setHealth( player.getHealth() * 20);
         this.setStrength(player.getStrength() * 2);
@@ -27,16 +38,36 @@ public class Boss extends Character{
 
     }
 
-    //get functions for Boss attributes
+    
+    /**
+     * 
+     * @return get functions for Boss attributes
+     */
     public int getAccuracy(){ return this.accuracy; }
 
+    /**
+     * defenir accuracy
+     * @param accuracy a
+     */
+    public void setAccuracy(int accuracy) {
+        this.accuracy = accuracy;
+    }
 
+
+    /**
+     * Imprimir os atributos
+     */
     public void displayAttributes(){
         System.out.println( "\nBoss \n"    +
                 "HP : " + this.getHealth() + "\n" +
                 "STR: " + this.getStrength());
     }
 
+    /**
+     * Ataque do boss
+     * @param player Player a ser atacado
+     * 
+     */
     public void bossAttack(Player player){
         Random random = new Random();
         int chanceToHit = random.nextInt(100);;
