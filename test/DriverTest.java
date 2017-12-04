@@ -206,7 +206,7 @@ public class DriverTest {
         Player p9 = new Player();        
         for (int i = 0; i < 100; i++) {
             p9.createMage();
-            System.out.println(p9.getStrength());
+         //   System.out.println(p9.getStrength());
             assertTrue(p9.getHealth() >= 10 && p9.getHealth() <= 14);
             assertTrue(p9.getStrength() >= 5 && p9.getStrength() <= 9);
             assertTrue(p9.getIntelligence() >= 20 && p9.getIntelligence() <=29);
@@ -217,7 +217,24 @@ public class DriverTest {
     }
     
     @Test
-    public void testBoss1(){
+    /**
+     * 
+     */
+    public void testCriarJogo(){
+        
+        Player p9 = new Player();
+        Boss boss1 = new Boss();
+        Driver.criarJogo(p9, boss1);
+        
+        
+        
        
+    }
+    @Test 
+    public void testVerificarCiclo(){
+        Player p9 = new Player();
+        Boss boss1 = new Boss(p9);
+        Driver.verificarVida(p9, boss1, 1);
+        
     }
 }

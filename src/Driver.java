@@ -8,20 +8,20 @@
  * Driver class to run game
  */
 import java.util.*;
+
 /**
- * Classe Driver  
+ * Classe Driver
+ *
  * @author carlos .
  */
 public class Driver {
-
-    //
     /**
      * setup game stats
+     * @param player player
+     * @param boss boss
      */
-    public static void criarJogo() {
-        
-        Player player = new Player();
-        Boss boss = new Boss();
+    public static void criarJogo(Player player, Boss boss) {
+
         int turn = 1;
         int choice = -1;
 
@@ -34,36 +34,39 @@ public class Driver {
 
         //spawn boss
         System.out.println("\nSpawning boss! Get Ready!");
-        boss = new Boss(player);
-        verificarVida(player, boss, turn, input);
-        
+        Boss boss1 = new Boss();
+        boss1=boss;
+        boss1 = new Boss(player);
+        verificarVida(player, boss1, turn);
+
     }
-    
-        /**
-         * metodo que verifica a vida do player e do boss e determina se o jogo continua
-         * @param player player em jogo
-         * @param boss boss em jogo
-         * @param turn turno inicial =1
-         * @param input input
-         */
-        public static void verificarVida(Player player, Boss boss, int turn, Scanner input){
+
+    /**
+     * metodo que verifica a vida do player e do boss e determina se o jogo
+     * continua
+     *
+     * @param player player em jogo
+     * @param boss1 boss em jogo
+     * @param turn turno inicial =1
+     * 
+     */
+    public static void verificarVida(Player player, Boss boss1, int turn) {
         //keep playing while player and boss still alive
-        
+   Scanner input = new Scanner(System.in);
         int escolha = -1;
-        
-        
-        while (player.getHealth() > 0 && boss.getHealth() > 0) {
+
+        while (player.getHealth() > 0 && boss1.getHealth() > 0) {
             System.out.println("------------------------------");
             System.out.println("\nTURN: " + turn);
 
-            if (turn < 3) {
+            if (turn <= 3) {
 
-                boss.setAccuracy(0);
+                boss1.setAccuracy(0);
             } else {
-                boss.setAccuracy(100 - 2 * (player.getEvade()));
+                boss1.setAccuracy(100 - 2 * (player.getEvade()));
 
             }
-            boss.displayAttributes();
+            boss1.displayAttributes();
             player.displayAttributes();
             System.out.println("NOTE: every 2 turns survived increases your HP");
 
@@ -80,12 +83,12 @@ public class Driver {
 
             if (escolha == 1) {
                 System.out.printf("\nYou did %d damage!\n", player.getStrength());
-                boss.setHealth(boss.getHealth() - player.getStrength());
-                boss.bossAttack(player);
+                boss1.setHealth(boss1.getHealth() - player.getStrength());
+                boss1.bossAttack(player);
             } else if (escolha == 2) {
                 System.out.printf("\nYou did %d damage!\n", player.getIntelligence());
-                boss.setHealth(boss.getHealth() - player.getIntelligence());
-                boss.bossAttack(player);
+                boss1.setHealth(boss1.getHealth() - player.getIntelligence());
+                boss1.bossAttack(player);
             } else if (escolha == 3) {
                 System.out.println("quitting game...");
                 break;
@@ -106,19 +109,19 @@ public class Driver {
                 System.out.println("lol git gud");
             }
 
-        } else if (boss.getHealth() <= 0) {
+        } else if (boss1.getHealth() <= 0) {
             System.out.printf("You won the game in %d turns!", turn);
         }
-        
+
     }
 
-    
-        /**
-         * //ask user for class selection
-         * @param input input
-         * @param choice escolha introduzida pelo player
-         * @param player jogador 
-         */
+    /**
+     * //ask user for class selection
+     *
+     * @param input input
+     * @param choice escolha introduzida pelo player
+     * @param player jogador
+     */
     private static void promptClassSelection(Scanner input, int choice, Player player) {
         int escolha = -1;
         while (true) {
@@ -157,9 +160,12 @@ public class Driver {
 
     /**
      * metodo main
+     *
      * @param args argumentos
      */
     public static void main(String[] args) {
-        criarJogo();
+        Player player = new Player();
+        Boss boss = new Boss();
+        criarJogo(player, boss);
     }
 }
