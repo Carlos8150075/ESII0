@@ -1,3 +1,5 @@
+package WizardGame;
+
 /**
  * @author Johnny Chung
  *
@@ -57,6 +59,7 @@ public class Boss extends Character{
     /**
      * Imprimir os atributos
      */
+    @Override
     public void displayAttributes(){
         System.out.println( "\nBoss \n"    +
                 "HP : " + this.getHealth() + "\n" +
@@ -70,7 +73,7 @@ public class Boss extends Character{
      */
     public void bossAttack(Player player){
         Random random = new Random();
-        int chanceToHit = random.nextInt(100);;
+        int chanceToHit = random.nextInt(100);
         if(chanceToHit < this.getAccuracy()) {
             System.out.printf("The boss retaliates and does %d damage!\n", this.getStrength());
             player.setHealth(player.getHealth() - this.getStrength());

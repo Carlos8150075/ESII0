@@ -1,9 +1,13 @@
+package Testes;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import WizardGame.Player;
+import WizardGame.Boss;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -90,14 +94,26 @@ public class BossTest {
         for (int i = 0; i < 100; i++) { 
         Boss boss1= new Boss();
       
-         System.out.println(  boss1.getStrength());
+        // System.out.println(  boss1.getStrength());
          boss1.displayAttributes();
-        assertTrue(boss1.getAccuracy()==-1);
+         assertTrue(boss1.getAccuracy()==-1);
      
+    }}
+        
+   @Test 
+   public void testeBossSetAcurracy(){
+       
+   
+       for (int i = 0; i < 100; i++) { 
+        Boss boss1= new Boss();
+        boss1.setAccuracy(i);
+        
+           assertTrue(boss1.getAccuracy()== i);
+        
     }
         
     
     
-    
-}
+   }
+
 }

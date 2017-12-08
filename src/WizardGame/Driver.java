@@ -1,3 +1,4 @@
+package WizardGame;
 
 /**
  * @author Johnny Chung
@@ -15,15 +16,18 @@ import java.util.*;
  * @author carlos .
  */
 public class Driver {
+
     /**
      * setup game stats
-     * @param player player
-     * @param boss boss
+     *
+     * 
      */
-    public static void criarJogo(Player player, Boss boss) {
+    public static void criarJogo() {
 
         int turn = 1;
         int choice = -1;
+        Player player = new Player();
+        Boss boss = new Boss();
 
         System.out.println("Welcome to the game!");
         Scanner input = new Scanner(System.in);
@@ -35,9 +39,34 @@ public class Driver {
         //spawn boss
         System.out.println("\nSpawning boss! Get Ready!");
         Boss boss1 = new Boss();
-        boss1=boss;
-        boss1 = new Boss(player);
+        boss = new Boss(player);
         verificarVida(player, boss1, turn);
+
+    }
+
+    /**
+     * ataque com dan fisico
+     *
+     * @param player player
+     * @param boss1 boss
+     */
+    public static void physicalAttack(Player player, Boss boss1) {
+        System.out.printf("\nYou did %d damage!\n", player.getStrength());
+        boss1.setHealth(boss1.getHealth() - player.getStrength());
+        boss1.bossAttack(player);
+
+    }
+
+    /**
+     * ataque magico
+     *
+     * @param player player
+     * @param boss1 boss
+     */
+    public static void magicalAttack(Player player, Boss boss1) {
+        System.out.printf("\nYou did %d damage!\n", player.getIntelligence());
+        boss1.setHealth(boss1.getHealth() - player.getIntelligence());
+        boss1.bossAttack(player);
 
     }
 
@@ -48,11 +77,11 @@ public class Driver {
      * @param player player em jogo
      * @param boss1 boss em jogo
      * @param turn turno inicial =1
-     * 
+     *
      */
     public static void verificarVida(Player player, Boss boss1, int turn) {
         //keep playing while player and boss still alive
-   Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         int escolha = -1;
 
         while (player.getHealth() > 0 && boss1.getHealth() > 0) {
@@ -82,13 +111,10 @@ public class Driver {
             escolha = input.nextInt();
 
             if (escolha == 1) {
-                System.out.printf("\nYou did %d damage!\n", player.getStrength());
-                boss1.setHealth(boss1.getHealth() - player.getStrength());
-                boss1.bossAttack(player);
+                physicalAttack(player, boss1);
             } else if (escolha == 2) {
-                System.out.printf("\nYou did %d damage!\n", player.getIntelligence());
-                boss1.setHealth(boss1.getHealth() - player.getIntelligence());
-                boss1.bossAttack(player);
+                magicalAttack(player, boss1);
+
             } else if (escolha == 3) {
                 System.out.println("quitting game...");
                 break;
@@ -164,8 +190,9 @@ public class Driver {
      * @param args argumentos
      */
     public static void main(String[] args) {
-        Player player = new Player();
-        Boss boss = new Boss();
-        criarJogo(player, boss);
+        // Player player = new Player();
+        //   Boss boss = new Boss();
+        //criarJogo(player, boss);
+        criarJogo();
     }
 }

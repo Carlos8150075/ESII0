@@ -1,9 +1,14 @@
+package Testes;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import WizardGame.Driver;
+import WizardGame.Player;
+import WizardGame.Boss;
+import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,8 +44,6 @@ public class DriverTest {
     /**
      * TESTE 1: Warrior com valor -1 que não pertence ao intervalo [0-10]
      */
-    
-    
     @Test
     public void testeWarrior1() {
 
@@ -64,7 +67,7 @@ public class DriverTest {
      * Warrior com valor 0 que pertence ao intervalo [0-10]
      * Falha sempre pois o valor tem de ser positivo
      */
-    /*@Test
+ /*@Test
     public void testeWarrior2() {
 
         Player p2 = new Player();
@@ -78,7 +81,7 @@ public class DriverTest {
         }
     }*/
 
-    /*
+ /*
      * TESTE 3:
      * Warrior com valor 10 que pertence ao intervalo [0-10]
      */
@@ -192,49 +195,70 @@ public class DriverTest {
             assertTrue(p8.getEvade() >= 1 && p8.getEvade() <= 101);
         }
     }
-    
+
     /**
-     * 
-     * health min = 10  max = 14
-     * intelligence min=20 max =29
-     * evade min = 5 max =9
-     * 
+     *
+     * health min = 10 max = 14 intelligence min=20 max =29 evade min = 5 max =9
+     *
      */
     @Test
-    public void testMage1(){
-        
-        Player p9 = new Player();        
+    public void testMage1() {
+
+        Player p9 = new Player();
         for (int i = 0; i < 100; i++) {
             p9.createMage();
-         //   System.out.println(p9.getStrength());
+            //   System.out.println(p9.getStrength());
             assertTrue(p9.getHealth() >= 10 && p9.getHealth() <= 14);
             assertTrue(p9.getStrength() >= 5 && p9.getStrength() <= 9);
-            assertTrue(p9.getIntelligence() >= 20 && p9.getIntelligence() <=29);
-            assertTrue(p9.getEvade() >=5 && p9.getEvade() <=9);
+            assertTrue(p9.getIntelligence() >= 20 && p9.getIntelligence() <= 29);
+            assertTrue(p9.getEvade() >= 5 && p9.getEvade() <= 9);
         }
-        
-        
+
     }
-    
+
     @Test
     /**
-     * 
+     *
      */
-    public void testCriarJogo(){
-        
+    public void testCriarJogo() {
+
         Player p9 = new Player();
         Boss boss1 = new Boss();
-        Driver.criarJogo(p9, boss1);
-        
-        
-        
-       
+        Driver.criarJogo();
+
     }
-    @Test 
-    public void testVerificarCiclo(){
+
+    @Test
+    public void testVerificarCiclo() {
         Player p9 = new Player();
         Boss boss1 = new Boss(p9);
         Driver.verificarVida(p9, boss1, 1);
-        
+
     }
+
+    @Test
+    public void testsSelecionarPlayer() {
+        Player p9 = new Player();
+        Boss boss1 = new Boss(p9);
+
+    }
+
+    @Test
+    public void testPhysicAttack() {
+        Player p9 = new Player();
+        Boss boss1 = new Boss(p9);
+
+        Driver.physicalAttack(p9, boss1);
+
+    }
+
+    @Test
+    public void testMagicAttack() {
+        Player p9 = new Player();
+        Boss boss1 = new Boss(p9);
+
+        Driver.magicalAttack(p9, boss1);
+
+    }
+
 }
