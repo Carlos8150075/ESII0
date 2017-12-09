@@ -1,4 +1,4 @@
-package WizardGame;
+package wizardgamee;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,6 +10,7 @@ package WizardGame;
  *
  * @author carlos
  */
+
 public abstract class Character {
     
     private int health;

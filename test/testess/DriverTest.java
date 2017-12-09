@@ -1,13 +1,13 @@
-package Testes;
+package testess;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import WizardGame.Driver;
-import WizardGame.Player;
-import WizardGame.Boss;
+import wizardgamee.Driver;
+import wizardgamee.Player;
+import wizardgamee.Boss;
 import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -260,5 +260,19 @@ public class DriverTest {
         Driver.magicalAttack(p9, boss1);
 
     }
-
+    
+    @Test
+    public void testDisplayAtributes(){
+        
+        
+        
+        Player p = new Player();
+         Boss boss1 = new Boss(p);
+         p.displayAttributes();
+         boss1.displayAttributes();
+         
+         
+        
+        
+    }
 }

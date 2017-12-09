@@ -1,4 +1,4 @@
-package WizardGame;
+package wizardgamee;
 
 /**
  * @author Johnny Chung
@@ -34,7 +34,7 @@ public class Boss extends Character{
      * @param player player ja criado
      */
     public Boss(Player player) {
-        this.setHealth( player.getHealth() * 5);
+        this.setHealth( player.getHealth() * 20);
         this.setStrength(player.getStrength() * 2);
         this.accuracy = 100 - 2*(player.getEvade());
 

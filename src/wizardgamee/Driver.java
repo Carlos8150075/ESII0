@@ -1,4 +1,4 @@
-package WizardGame;
+package wizardgamee;
 
 /**
  * @author Johnny Chung
@@ -25,22 +25,22 @@ public class Driver {
     public static void criarJogo() {
 
         int turn = 1;
-        int choice = -1;
+       
         Player player = new Player();
-        Boss boss = new Boss();
+       
 
         System.out.println("Welcome to the game!");
         Scanner input = new Scanner(System.in);
 
-        promptClassSelection(input, choice, player);
+        promptClassSelection(input, player);
 
         player.displayAttributes();
 
         //spawn boss
         System.out.println("\nSpawning boss! Get Ready!");
-        Boss boss1 = new Boss();
-        boss = new Boss(player);
-        verificarVida(player, boss1, turn);
+        
+        Boss boss = new Boss(player);
+        verificarVida(player, boss, turn);
 
     }
 
@@ -148,7 +148,7 @@ public class Driver {
      * @param choice escolha introduzida pelo player
      * @param player jogador
      */
-    private static void promptClassSelection(Scanner input, int choice, Player player) {
+    private static void promptClassSelection(Scanner input, Player player) {
         int escolha = -1;
         while (true) {
 
@@ -190,9 +190,6 @@ public class Driver {
      * @param args argumentos
      */
     public static void main(String[] args) {
-        // Player player = new Player();
-        //   Boss boss = new Boss();
-        //criarJogo(player, boss);
         criarJogo();
     }
 }

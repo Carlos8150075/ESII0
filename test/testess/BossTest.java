@@ -1,4 +1,4 @@
-package Testes;
+package testess;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,8 +6,8 @@ package Testes;
  * and open the template in the editor.
  */
 
-import WizardGame.Player;
-import WizardGame.Boss;
+import wizardgamee.Player;
+import wizardgamee.Boss;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -111,9 +111,21 @@ public class BossTest {
            assertTrue(boss1.getAccuracy()== i);
         
     }
-        
-    
-    
    }
+   
+        
+   @Test 
+   public void testeBossEvade(){
+       
+   
+       for (int i = 0; i < 100; i++) { 
+        Boss boss1= new Boss();
+        boss1.setAccuracy(i);
+        
+           assertTrue(boss1.getAccuracy()== i);
+        
+    }
+   }
+    
 
 }
