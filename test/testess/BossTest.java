@@ -6,8 +6,8 @@ package testess;
  * and open the template in the editor.
  */
 
-import wizardgamee.Player;
-import wizardgamee.Boss;
+import estg.esii.wizards.Player;
+import estg.esii.wizards.Boss;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -74,17 +74,14 @@ public class BossTest {
     @Test
     public void testBossAttack() {
        
-      
-     //   boss1.bossAttack(p1);
         for (int i = 0; i < 100; i++) { 
          Player p1= new Player();
-        p1.createWarrior(10);
-        Boss boss1= new Boss(p1);
-        boss1.bossAttack(p1);
-     //   System.out.println(boss1.getStrength());
-      //  System.out.println(boss1.getHealth());
-      assertTrue(boss1.getHealth() >= 300 && boss1.getHealth() <= 580);
-      assertTrue(boss1.getStrength() >=30 && boss1.getStrength() <= 84);
+         p1.createWarrior(10);
+         Boss boss1= new Boss(p1);
+          boss1.bossAttack(p1);
+          
+      assertTrue("health",boss1.getHealth() >= 300 && boss1.getHealth() <= 580);
+      assertTrue("strenght",boss1.getStrength() >=30 && boss1.getStrength() <= 86);
     }
     }
     
@@ -99,6 +96,20 @@ public class BossTest {
          assertTrue(boss1.getAccuracy()==-1);
      
     }}
+    
+     @Test
+    public void testConstructor2() {
+        
+       // verificar
+        
+       for (int i = 1; i < 100; i++) { 
+       Player p1= new Player();
+       p1.createWarrior(i);
+       Boss boss1= new Boss(p1);
+      assertTrue("health",boss1.getHealth() >= 300 && boss1.getHealth() <= 580);
+      assertTrue("strenght",boss1.getStrength() >=30 && boss1.getStrength() <= 86);
+    }
+    }
         
    @Test 
    public void testeBossSetAcurracy(){
@@ -126,6 +137,17 @@ public class BossTest {
         
     }
    }
+   
+    @Test
+    public void testBossDisplayAtributes(){
+        
+        
+        
+        Player p = new Player();
+         Boss boss1 = new Boss(p);
+         boss1.displayAttributes();
+   
+    }
     
 
 }

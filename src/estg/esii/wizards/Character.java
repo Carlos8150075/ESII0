@@ -1,4 +1,4 @@
-package wizardgamee;
+package estg.esii.wizards;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

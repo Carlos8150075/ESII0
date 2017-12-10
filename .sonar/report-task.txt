@@ -2,5 +2,5 @@ projectKey=org.sonarqube:sonarqube-scanner-ant
 serverUrl=http://localhost:9000
 serverVersion=6.7.0.33306
 dashboardUrl=http://localhost:9000/dashboard/index/org.sonarqube:sonarqube-scanner-ant
-ceTaskId=AWBBNNjVkfKcALe5JIka
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWBBNNjVkfKcALe5JIka
+ceTaskId=AWBBrrWckfKcALe5JIkg
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWBBrrWckfKcALe5JIkg

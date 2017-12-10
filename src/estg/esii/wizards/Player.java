@@ -1,4 +1,4 @@
-package wizardgamee;
+package estg.esii.wizards;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package wizardgamee;
+package estg.esii.wizards;
 
 /**
  * @author Johnny Chung
