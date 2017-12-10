@@ -41,7 +41,7 @@ public class Driver {
         System.out.println("\nSpawning boss! Get Ready!");
         
         Boss boss = new Boss(player);
-        verificarVida(player, boss, turn);
+        verificarContinuidade(player, boss, turn);
 
     }
 
@@ -126,6 +126,21 @@ public class Driver {
                 System.out.println("Out of range");
             }
     }
+    
+    public static void verificarVida(int turn, Player player, Boss boss1){
+         if (player.getHealth() <= 0) {
+            System.out.println("YOU DIED");
+            if (turn <= 3) {
+                System.out.println("lol git gud");
+            }
+
+        } else if (boss1.getHealth() <= 0) {
+            System.out.printf("You won the game in %d turns!", turn);
+        }
+    }
+    
+    
+    
 
     /**
      * metodo que verifica a vida do player e do boss e determina se o jogo
@@ -136,7 +151,7 @@ public class Driver {
      * @param turn turno inicial =1
      *
      */
-    public static void verificarVida(Player player, Boss boss1, int turn) {
+    public static void verificarContinuidade(Player player, Boss boss1, int turn) {
         //keep playing while player and boss still alive
         Scanner input = new Scanner(System.in);
         int escolha = -1;
@@ -170,16 +185,8 @@ public class Driver {
             }
             turn++;
         }
-
-        if (player.getHealth() <= 0) {
-            System.out.println("YOU DIED");
-            if (turn <= 3) {
-                System.out.println("lol git gud");
-            }
-
-        } else if (boss1.getHealth() <= 0) {
-            System.out.printf("You won the game in %d turns!", turn);
-        }
+        
+        verificarVida(turn, player, boss1);
 
     }
 

@@ -62,7 +62,7 @@ public class DriverTest {
         Player p9 = new Player();
         p9.createWarrior(10);
         Boss boss1 = new Boss(p9);
-         Driver.verificarVida(p9, boss1, 1);
+         Driver.verificarContinuidade(p9, boss1, 1);
 
     }
 
@@ -248,5 +248,51 @@ public class DriverTest {
         Driver.escolherClasse(4, p9);
 
     }
+    
+    @Test
+    public void testMortePlayer() {
+
+        //perguntar para numero negativos
+        Player p9 = new Player();
+        p9.createWarrior(10);
+
+        Boss boss1 = new Boss(p9);
+        
+        p9.setHealth(0);
+        
+        Driver.verificarVida(1, p9, boss1);
+
+    }
+    
+    @Test
+    public void testMortePlayerMaisQueTurno3() {
+
+        //perguntar para numero negativos
+        Player p9 = new Player();
+        p9.createWarrior(10);
+
+        Boss boss1 = new Boss(p9);
+        
+        p9.setHealth(0);
+        
+        Driver.verificarVida(3, p9, boss1);
+        
+      
+
+    }
+
+    @Test
+    public void testMorteBoss() {
+
+        //perguntar para numero negativos
+        Player p9 = new Player();
+        p9.createWarrior(10);
+
+        Boss boss1 = new Boss(p9);
+        boss1.setHealth(0);
+        Driver.verificarVida(1, p9, boss1);
+
+    }
+
 
 }
