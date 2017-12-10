@@ -8,6 +8,7 @@ package estg.esii.wizards;
  *
  * Driver class to run game
  */
+import static java.lang.System.exit;
 import java.util.*;
 
 /**
@@ -85,6 +86,46 @@ public class Driver {
 
             }
     }
+    
+    /**
+     * Escolher a classe que quer jogar
+     * @param escolha escolha introduzida pelo utilizador
+     * @param player player
+     * @param boss1  boss
+     */
+    public static void escolherAtaque(int escolha, Player player, Boss boss1){
+        
+        if (escolha == 1) {
+                physicalAttack(player, boss1);
+            } else if (escolha == 2) {
+                magicalAttack(player, boss1);
+
+            } else if (escolha == 3) {
+                System.out.println("quitting game...");
+                exit(0);
+            } else {
+                System.out.print("Enter a valid integer:");
+            }
+        
+    }
+    
+    public static void escolherClasse(int escolha, Player player){
+        if (escolha == 1) {
+                //create warrior
+                player.createWarrior(5);
+               
+            } else if (escolha == 2) {
+                //create mage
+                player.createMage();
+               
+            } else if (escolha == 3) {
+                //create thief
+                player.createThief(100);
+               
+            } else {
+                System.out.println("Out of range");
+            }
+    }
 
     /**
      * metodo que verifica a vida do player e do boss e determina se o jogo
@@ -120,17 +161,8 @@ public class Driver {
             }
             escolha = input.nextInt();
 
-            if (escolha == 1) {
-                physicalAttack(player, boss1);
-            } else if (escolha == 2) {
-                magicalAttack(player, boss1);
-
-            } else if (escolha == 3) {
-                System.out.println("quitting game...");
-                break;
-            } else {
-                System.out.print("Enter a valid integer:");
-            }
+            //utilizador escolhe o tipo de ataque
+            escolherAtaque(escolha, player, boss1);
 
             //increase health every 2 turns
             if ((turn % 2) == 0) {
@@ -155,10 +187,9 @@ public class Driver {
      * //ask user for class selection
      *
      * @param input input
-     * @param choice escolha introduzida pelo player
      * @param player jogador
      */
-    private static void promptClassSelection(Scanner input, Player player) {
+    public static void promptClassSelection(Scanner input, Player player) {
         int escolha = -1;
         while (true) {
 
@@ -176,21 +207,8 @@ public class Driver {
 
             escolha = input.nextInt();
 
-            if (escolha == 1) {
-                //create warrior
-                player.createWarrior(5);
-                break;
-            } else if (escolha == 2) {
-                //create mage
-                player.createMage();
-                break;
-            } else if (escolha == 3) {
-                //create thief
-                player.createThief(100);
-                break;
-            } else {
-                System.out.println("Out of range");
-            }
+            escolherClasse(escolha, player);
+            break;
         }
     }
 
