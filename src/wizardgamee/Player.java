@@ -29,7 +29,16 @@ public class Player extends Character {
      * Criaçao do mago
      */
     public void createMage() {
-        // Do nothing because ainda nao sei and Y.
+        
+        Random rand = new Random();
+
+        setHealth((rand.nextInt(4))+10);
+
+        setStrength(rand.nextInt(4)+5);
+
+        intelligence = rand.nextInt(9)+20;
+
+       evade = rand.nextInt(4)+5;
 
     }
 

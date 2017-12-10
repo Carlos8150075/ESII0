@@ -69,6 +69,22 @@ public class Driver {
         boss1.bossAttack(player);
 
     }
+    
+    /**
+     * metodo que permite o player nao morrer nos 3 primeiros turnos
+     * @param turn turno
+     * @param player player
+     * @param boss1 boss
+     */
+    public static void flea(int turn , Player player, Boss boss1) {
+        if (turn <= 3) {
+
+                boss1.setAccuracy(0);
+            } else {
+                boss1.setAccuracy(100 - 2 * (player.getEvade()));
+
+            }
+    }
 
     /**
      * metodo que verifica a vida do player e do boss e determina se o jogo
@@ -88,13 +104,7 @@ public class Driver {
             System.out.println("------------------------------");
             System.out.println("\nTURN: " + turn);
 
-            if (turn <= 3) {
-
-                boss1.setAccuracy(0);
-            } else {
-                boss1.setAccuracy(100 - 2 * (player.getEvade()));
-
-            }
+            flea(turn, player, boss1);
             boss1.displayAttributes();
             player.displayAttributes();
             System.out.println("NOTE: every 2 turns survived increases your HP");

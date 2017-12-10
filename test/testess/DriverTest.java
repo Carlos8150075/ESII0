@@ -67,7 +67,7 @@ public class DriverTest {
      * Warrior com valor 0 que pertence ao intervalo [0-10]
      * Falha sempre pois o valor tem de ser positivo
      */
- /*@Test
+ @Test
     public void testeWarrior2() {
 
         Player p2 = new Player();
@@ -79,7 +79,7 @@ public class DriverTest {
             assertTrue(p2.getHealth() >= 15 && p2.getHealth() < 23);
 
         }
-    }*/
+    }
 
  /*
      * TESTE 3:
@@ -133,11 +133,18 @@ public class DriverTest {
         for (int i = 0; i < 100; i++) {
 
             p5.createThief(-1);
-
-            assertTrue(p5.getHealth() >= 1 && p5.getHealth() <= 5);
-            assertTrue(p5.getStrength() >= 6 && p5.getStrength() <= 10);
-            assertTrue(p5.getIntelligence() == 5);
-            assertTrue(p5.getEvade() >= 1 && p5.getEvade() <= 101);
+            
+            /* anterior
+             assertTrue("vida", p5.getHealth() >= 1 && p5.getHealth() <= 5);
+            assertTrue("força" ,p5.getStrength() >= 6 && p5.getStrength() <= 10);
+            assertTrue("inteligencia", p5.getIntelligence() == 5);
+            assertTrue("evade",p5.getEvade() >= 1 && p5.getEvade() <= 101);
+              */
+            
+            assertTrue("vida", p5.getHealth() >= 1 && p5.getHealth() <= 6);
+            assertTrue("força" ,p5.getStrength() >= 6 && p5.getStrength() <= 10);
+            assertTrue("inteligencia", p5.getIntelligence() == 5);
+            assertTrue("evade",p5.getEvade() >= 1 && p5.getEvade() <= 101);
         }
     }
 
@@ -170,11 +177,16 @@ public class DriverTest {
 
         for (int i = 0; i < 100; i++) {
             p7.createThief(5);
-
-            assertTrue(p7.getHealth() >= 5 && p7.getHealth() <= 9);
-            assertTrue(p7.getStrength() >= 10 && p7.getStrength() <= 14);
-            assertTrue(p7.getIntelligence() == 5);
-            assertTrue(p7.getEvade() >= 5 && p7.getEvade() <= 105);
+            
+           /* assertTrue("vida",p7.getHealth() >= 5 && p7.getHealth() <= 9);
+            assertTrue("força",p7.getStrength() >= 10 && p7.getStrength() <= 14);
+            assertTrue("inteligencia", p7.getIntelligence() == 5);
+            assertTrue("evade",p7.getEvade() >= 5 && p7.getEvade() <= 105);*/
+           
+            assertTrue("vida",p7.getHealth() >= 5 && p7.getHealth() <= 14);
+            assertTrue("força",p7.getStrength() >= 10 && p7.getStrength() <= 14);
+            assertTrue("inteligencia", p7.getIntelligence() == 5);
+            assertTrue("evade",p7.getEvade() >= 5 && p7.getEvade() <= 105);
         }
     }
 
@@ -188,11 +200,17 @@ public class DriverTest {
 
         for (int i = 0; i < 100; i++) {
             p8.createThief(7);
-            //System.out.println(p8.getEvade());
-            assertTrue(p8.getHealth() >= 1 && p8.getHealth() <= 5);
+       
+          /* assertTrue(p8.getHealth() >= 1 && p8.getHealth() <= 5);
+            assertTrue(p8.getStrength() >= 6 && p8.getStrength() <= 10);
+            assertTrue(p8.getIntelligence() == 5);
+            assertTrue(p8.getEvade() >= 1 && p8.getEvade() <= 101);*/
+          
+           assertTrue(p8.getHealth() >= 1 && p8.getHealth() <= 6);
             assertTrue(p8.getStrength() >= 6 && p8.getStrength() <= 10);
             assertTrue(p8.getIntelligence() == 5);
             assertTrue(p8.getEvade() >= 1 && p8.getEvade() <= 101);
+          
         }
     }
 
