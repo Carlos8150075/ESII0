@@ -50,11 +50,10 @@ public class PlayerTest {
 
             p1.createWarrior(-1);
 
-            System.out.println(p1.getIntelligence());
             assertTrue("heath", p1.getHealth() >= 15 && p1.getHealth() < 23);
             assertTrue("strenght", p1.getStrength() >= 15 && p1.getStrength() < 37);
             assertTrue("evade", p1.getEvade() >= 3 && p1.getEvade() <= 5);
-            assertTrue("intelligence", p1.getIntelligence() >= 5 && p1.getIntelligence() <= 38);
+            assertTrue("intelligence", p1.getIntelligence() >= 5 && p1.getIntelligence() <= 39);
 
         }
 
@@ -92,11 +91,10 @@ public class PlayerTest {
 
             p3.createWarrior(10);
 
-            assertTrue(p3.getHealth() >= 15 && p3.getHealth() < 30);
-            //assertTrue(p3.getStrength() >= 15 && p3.getStrength() < 37);
-            assertTrue(p3.getStrength() >= 15 && p3.getStrength() <= 43);
-            assertTrue(p3.getEvade() >= 10 && p3.getEvade() <= 19);
-            assertTrue(p3.getIntelligence() >= 5 && p3.getIntelligence() <= 45);
+            assertTrue("health", p3.getHealth() >= 15 && p3.getHealth() < 30);
+            assertTrue("Strenght", p3.getStrength() >= 15 && p3.getStrength() <= 43);
+            assertTrue("evade", p3.getEvade() >= 10 && p3.getEvade() <= 19);
+            assertTrue("intelligence", p3.getIntelligence() >= 5 && p3.getIntelligence() <= 45);
         }
     }
 
@@ -113,10 +111,10 @@ public class PlayerTest {
 
             p4.createWarrior(15);
 
-            assertTrue(p4.getHealth() >= 15 && p4.getHealth() < 23);
-            assertTrue(p4.getStrength() >= 15 && p4.getStrength() <= 41);
-            assertTrue(p4.getEvade() >= 3 && p4.getEvade() <= 5);
-            assertTrue(p4.getIntelligence() >= 5 && p4.getIntelligence() <= 40);
+            assertTrue("Health", p4.getHealth() >= 15 && p4.getHealth() < 23);
+            assertTrue("Strenght", p4.getStrength() >= 15 && p4.getStrength() <= 41);
+            assertTrue("Evade", p4.getEvade() >= 3 && p4.getEvade() <= 5);
+            assertTrue("Intelligence ", p4.getIntelligence() >= 5 && p4.getIntelligence() <= 40);
         }
     }
 
@@ -131,17 +129,16 @@ public class PlayerTest {
         for (int i = 0; i < 100; i++) {
 
             p5.createThief(-1);
-
             /* anterior
-             assertTrue("vida", p5.getHealth() >= 1 && p5.getHealth() <= 5);
+            assertTrue("vida", p5.getHealth() >= 1 && p5.getHealth() <= 5);
             assertTrue("força" ,p5.getStrength() >= 6 && p5.getStrength() <= 10);
             assertTrue("inteligencia", p5.getIntelligence() == 5);
             assertTrue("evade",p5.getEvade() >= 1 && p5.getEvade() <= 101);
              */
-            assertTrue("vida", p5.getHealth() >= 1 && p5.getHealth() <= 6);
-            assertTrue("força", p5.getStrength() >= 6 && p5.getStrength() <= 10);
-            assertTrue("inteligencia", p5.getIntelligence() == 5);
-            assertTrue("evade", p5.getEvade() >= 1 && p5.getEvade() <= 101);
+            assertTrue("Health", p5.getHealth() >= 1 && p5.getHealth() <= 6);
+            assertTrue("Strenght", p5.getStrength() >= 6 && p5.getStrength() <= 10);
+            assertTrue("Intelligence", p5.getIntelligence() == 5);
+            assertTrue("Evade", p5.getEvade() >= 1 && p5.getEvade() <= 101);
         }
     }
 
@@ -157,10 +154,10 @@ public class PlayerTest {
 
             p6.createThief(0);
 
-            assertTrue(p6.getHealth() >= 0 && p6.getHealth() <= 4);
-            assertTrue(p6.getStrength() >= 5 && p6.getStrength() <= 9);
-            assertTrue(p6.getIntelligence() == 5);
-            assertTrue(p6.getEvade() >= 0 && p6.getEvade() <= 100);
+            assertTrue("Health ", p6.getHealth() >= 0 && p6.getHealth() <= 4);
+            assertTrue("Strenght ", p6.getStrength() >= 5 && p6.getStrength() <= 9);
+            assertTrue(" Intelligence ", p6.getIntelligence() == 5);
+            assertTrue("Evade ", p6.getEvade() >= 0 && p6.getEvade() <= 100);
         }
     }
 
@@ -179,10 +176,10 @@ public class PlayerTest {
             assertTrue("força",p7.getStrength() >= 10 && p7.getStrength() <= 14);
             assertTrue("inteligencia", p7.getIntelligence() == 5);
             assertTrue("evade",p7.getEvade() >= 5 && p7.getEvade() <= 105);*/
-            assertTrue("vida", p7.getHealth() >= 5 && p7.getHealth() <= 14);
-            assertTrue("força", p7.getStrength() >= 10 && p7.getStrength() <= 14);
-            assertTrue("inteligencia", p7.getIntelligence() == 5);
-            assertTrue("evade", p7.getEvade() >= 5 && p7.getEvade() <= 105);
+            assertTrue("Health", p7.getHealth() >= 5 && p7.getHealth() <= 14);
+            assertTrue("Strenght", p7.getStrength() >= 10 && p7.getStrength() <= 14);
+            assertTrue("Intelligence", p7.getIntelligence() == 5);
+            assertTrue("Evade", p7.getEvade() >= 5 && p7.getEvade() <= 105);
         }
     }
 
@@ -202,10 +199,10 @@ public class PlayerTest {
             assertTrue(p8.getStrength() >= 6 && p8.getStrength() <= 10);
             assertTrue(p8.getIntelligence() == 5);
             assertTrue(p8.getEvade() >= 1 && p8.getEvade() <= 101);*/
-            assertTrue(p8.getHealth() >= 1 && p8.getHealth() <= 6);
-            assertTrue(p8.getStrength() >= 6 && p8.getStrength() <= 10);
-            assertTrue(p8.getIntelligence() == 5);
-            assertTrue(p8.getEvade() >= 1 && p8.getEvade() <= 101);
+            assertTrue("Health", p8.getHealth() >= 1 && p8.getHealth() <= 6);
+            assertTrue("Strenght ", p8.getStrength() >= 6 && p8.getStrength() <= 10);
+            assertTrue("Intelligence", p8.getIntelligence() == 5);
+            assertTrue("Evade ", p8.getEvade() >= 1 && p8.getEvade() <= 101);
 
         }
     }
@@ -221,22 +218,22 @@ public class PlayerTest {
         Player p9 = new Player();
         for (int i = 0; i < 100; i++) {
             p9.createMage();
-            //   System.out.println(p9.getStrength());
-            assertTrue(p9.getHealth() >= 10 && p9.getHealth() <= 14);
-            assertTrue(p9.getStrength() >= 5 && p9.getStrength() <= 9);
-            assertTrue(p9.getIntelligence() >= 20 && p9.getIntelligence() <= 29);
-            assertTrue(p9.getEvade() >= 5 && p9.getEvade() <= 9);
+
+            assertTrue("Health", p9.getHealth() >= 10 && p9.getHealth() <= 14);
+            assertTrue("Strenght", p9.getStrength() >= 5 && p9.getStrength() <= 9);
+            assertTrue("Intelligence ", p9.getIntelligence() >= 20 && p9.getIntelligence() <= 29);
+            assertTrue("Evade", p9.getEvade() >= 5 && p9.getEvade() <= 9);
         }
 
     }
 
     /**
-     * Test of displayAttributes method, of class Player.
+     * Test of displayAttributes method, of class Player. Teste que nao "testa"
+     * a classe mas apenas passa pela classe
      */
     @Test
     public void testDisplayAttributes() {
-        
-        //ver o que fazer
+
         System.out.println("displayAttributes");
         Player instance = new Player();
         instance.displayAttributes();
@@ -289,11 +286,12 @@ public class PlayerTest {
 
     /**
      * Test of setIntelligence method, of class Player.
+     * 
      */
     @Test
     public void testSetIntelligence() {
         System.out.println("setIntelligence");
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 50; i++) {
             Player p1 = new Player();
             p1.setIntelligence(i);
             assertEquals(i, p1.getIntelligence());

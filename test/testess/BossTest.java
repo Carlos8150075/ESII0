@@ -79,10 +79,10 @@ public class BossTest {
          p1.createWarrior(10);
          Boss boss1= new Boss(p1); 
          int n= p1.getHealth();
-          boss1.bossAttack(p1);
+         boss1.bossAttack(p1);
          
         //  if(boss1.getStrength()> n){
-              assertEquals(p1.getHealth(), p1.getHealth());
+            //  assertEquals(p1.getHealth(), p1.getHealth());
         //  }else{
             //  assertEquals(boss1.getStrength(),n-p1.getHealth());
               

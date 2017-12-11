@@ -21,14 +21,13 @@ public class Driver {
     /**
      * setup game stats
      *
-     * 
+     *
      */
     public static void criarJogo() {
 
         int turn = 1;
-       
+
         Player player = new Player();
-       
 
         System.out.println("Welcome to the game!");
         Scanner input = new Scanner(System.in);
@@ -36,13 +35,22 @@ public class Driver {
         promptClassSelection(input, player);
 
         player.displayAttributes();
+        criarBoss(player, turn);
+        //spawn boss
+
+    }
+
+    /**
+     * Criar o boss
+     * @param player player atraves do qual é criado o boss
+     * @param turn turno
+     */
+    public static void criarBoss(Player player, int turn) {
 
         //spawn boss
         System.out.println("\nSpawning boss! Get Ready!");
-        
         Boss boss = new Boss(player);
         verificarContinuidade(player, boss, turn);
-
     }
 
     /**
@@ -70,65 +78,81 @@ public class Driver {
         boss1.bossAttack(player);
 
     }
-    
+
     /**
      * metodo que permite o player nao morrer nos 3 primeiros turnos
+     *
      * @param turn turno
      * @param player player
      * @param boss1 boss
      */
-    public static void flea(int turn , Player player, Boss boss1) {
+    public static void flea(int turn, Player player, Boss boss1) {
         if (turn <= 3) {
 
-                boss1.setAccuracy(0);
-            } else {
-                boss1.setAccuracy(100 - 2 * (player.getEvade()));
+            boss1.setAccuracy(0);
+        } else {
+            boss1.setAccuracy(100 - 2 * (player.getEvade()));
 
-            }
+        }
     }
-    
+
     /**
      * Escolher a classe que quer jogar
+     *
      * @param escolha escolha introduzida pelo utilizador
      * @param player player
-     * @param boss1  boss
+     * @param boss1 boss
      */
-    public static void escolherAtaque(int escolha, Player player, Boss boss1){
-        
-        if (escolha == 1) {
-                physicalAttack(player, boss1);
-            } else if (escolha == 2) {
-                magicalAttack(player, boss1);
+    public static void escolherAtaque(int escolha, Player player, Boss boss1) {
 
-            } else if (escolha == 3) {
-                System.out.println("quitting game...");
-                exit(0);
-            } else {
-                System.out.print("Enter a valid integer:");
-            }
-        
-    }
-    
-    public static void escolherClasse(int escolha, Player player){
         if (escolha == 1) {
-                //create warrior
-                player.createWarrior(5);
-               
-            } else if (escolha == 2) {
-                //create mage
-                player.createMage();
-               
-            } else if (escolha == 3) {
-                //create thief
-                player.createThief(100);
-               
-            } else {
-                System.out.println("Out of range");
-            }
+            physicalAttack(player, boss1);
+        } else if (escolha == 2) {
+            magicalAttack(player, boss1);
+
+        } else if (escolha == 3) {
+            System.out.println("quitting game...");
+            exit(0);
+        } else {
+            System.out.print("Enter a valid integer:");
+        }
+
     }
-    
-    public static void verificarVida(int turn, Player player, Boss boss1){
-         if (player.getHealth() <= 0) {
+
+    public static void escolherClasse(int escolha, Player player) {
+        if (escolha == 1) {
+            //create warrior
+            player.createWarrior(5);
+
+        } else if (escolha == 2) {
+            //create mage
+            player.createMage();
+
+        } else if (escolha == 3) {
+            //create thief
+            player.createThief(100);
+
+        } else {
+            System.out.println("Out of range");
+        }
+    }
+
+    /**
+     * increase health every 2 turns
+     *
+     * @param player player ao qual a vida vai ser aumentada
+     * @param turn turno do jogo
+     */
+    public static void aumentarVida(Player player, int turn) {
+        //increase health every 2 turns
+        if ((turn % 2) == 0) {
+            player.setHealth(player.getHealth() + 10);
+        }
+
+    }
+
+    public static void verificarVida(int turn, Player player, Boss boss1) {
+        if (player.getHealth() <= 0) {
             System.out.println("YOU DIED");
             if (turn <= 3) {
                 System.out.println("lol git gud");
@@ -138,9 +162,6 @@ public class Driver {
             System.out.printf("You won the game in %d turns!", turn);
         }
     }
-    
-    
-    
 
     /**
      * metodo que verifica a vida do player e do boss e determina se o jogo
@@ -180,12 +201,10 @@ public class Driver {
             escolherAtaque(escolha, player, boss1);
 
             //increase health every 2 turns
-            if ((turn % 2) == 0) {
-                player.setHealth(player.getHealth() + 10);
-            }
+            aumentarVida(player, turn);
             turn++;
         }
-        
+
         verificarVida(turn, player, boss1);
 
     }
