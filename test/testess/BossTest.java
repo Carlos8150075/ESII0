@@ -41,7 +41,7 @@ public class BossTest {
     }
 
     /**
-     * Test of getAccuracy method, of class Boss.
+     * Teste do metodo getAccuracy
      */
     /*
     @Test
@@ -56,9 +56,10 @@ public class BossTest {
     }
 
     /**
-     * Test of displayAttributes method, of class Boss.
+     * Teste do metodo displayAttributes
      */
-   /* @Test
+    /* 
+    @Test
     public void testDisplayAttributes() {
         System.out.println("displayAttributes");
         Boss instance = new Boss();
@@ -67,19 +68,20 @@ public class BossTest {
         fail("The test case is a prototype.");
     }
 
-    /**max 580
-       min 300
-     * Test of bossAttack method, of class Boss.
+    /**
+     * max 580
+     * min 300
+     * Teste do metodo bossAttack 
      */
     @Test
     public void testBossAttack() {
        
         for (int i = 0; i < 100; i++) { 
-         Player p1= new Player();
-         p1.createWarrior(10);
-         Boss boss1= new Boss(p1); 
-         int n= p1.getHealth();
-         boss1.bossAttack(p1);
+        Player p1= new Player();
+        p1.createWarrior(10);
+        Boss boss1= new Boss(p1); 
+        int n= p1.getHealth();
+        boss1.bossAttack(p1);
          
         //  if(boss1.getStrength()> n){
             //  assertEquals(p1.getHealth(), p1.getHealth());
@@ -91,67 +93,79 @@ public class BossTest {
     }
     }
     
+    /**
+     * Teste do Construtor da classe Boss, que nao recebe nenhum argumento
+     */
     @Test
     public void testConstructor1() {
         
         for (int i = 0; i < 100; i++) { 
         Boss boss1= new Boss();
       
-        // System.out.println(  boss1.getStrength());
-         boss1.displayAttributes();
-         assertTrue(boss1.getAccuracy()==-1);
+        boss1.displayAttributes();
+        assertTrue(boss1.getAccuracy()==-1);
      
-    }}
+        }
+    }
     
-     @Test
+    /**
+     * Teste do Construtor da classe Boss, que recebe como argumento um Player
+     */
+    @Test
     public void testConstructor2() {
         
        // verificar
         
-       for (int i = 1; i < 100; i++) { 
-       Player p1= new Player();
-       p1.createWarrior(i);
-       Boss boss1= new Boss(p1);
-      assertTrue("health",boss1.getHealth() >= 300 && boss1.getHealth() <= 580);
-      assertTrue("strenght",boss1.getStrength() >=30 && boss1.getStrength() <= 86);
-    }
+        for (int i = 1; i < 100; i++) { 
+            Player p1= new Player();
+            p1.createWarrior(i);
+            Boss boss1= new Boss(p1);
+            assertTrue("Health:",boss1.getHealth() >= 300 && boss1.getHealth() <= 580);
+            assertTrue("Strenght:",boss1.getStrength() >=30 && boss1.getStrength() <= 86);
+        }
     }
         
-   @Test 
-   public void testeBossSetAcurracy(){
+    /**
+     * Teste do metodo setAcurracy
+     */
+    @Test 
+    public void testeBossSetAcurracy(){
        
    
-       for (int i = 0; i < 100; i++) { 
-        Boss boss1= new Boss();
-        boss1.setAccuracy(i);
+        for (int i = 0; i < 100; i++) { 
+            Boss boss1= new Boss();
+            boss1.setAccuracy(i);
         
-           assertTrue(boss1.getAccuracy()== i);
-        
+            assertTrue(boss1.getAccuracy()== i);
+        }
     }
-   }
    
-        
-   @Test 
-   public void testeBossEvade(){
+    /**
+     * Teste do metodo ??
+     */    
+    @Test 
+    public void testeBossEvade(){
        
    
-       for (int i = 0; i < 100; i++) { 
-        Boss boss1= new Boss();
-        boss1.setAccuracy(i);
+        for (int i = 0; i < 100; i++) { 
+            Boss boss1= new Boss();
+            boss1.setAccuracy(i);
         
-           assertTrue(boss1.getAccuracy()== i);
-        
+            assertTrue(boss1.getAccuracy()== i);
+        }
     }
-   }
    
+    /**
+     * Teste do metodo DisplayAttributes
+     */
     @Test
-    public void testBossDisplayAtributes(){
+    public void testBossDisplayAttributes(){
         
         
         
         Player p = new Player();
-         Boss boss1 = new Boss(p);
-         boss1.displayAttributes();
+        Boss boss1 = new Boss(p);
+        boss1.displayAttributes();
    
     }
     

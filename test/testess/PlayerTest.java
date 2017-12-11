@@ -39,7 +39,8 @@ public class PlayerTest {
     }
 
     /**
-     * Test of createMage method, of class Player.
+     * Teste do metodo createWarrior com o valor -1 nao pertencente ao
+     * intervalo [0-10]
      */
     @Test
     public void testeWarrior1() {
@@ -50,19 +51,18 @@ public class PlayerTest {
 
             p1.createWarrior(-1);
 
-            assertTrue("heath", p1.getHealth() >= 15 && p1.getHealth() < 23);
-            assertTrue("strenght", p1.getStrength() >= 15 && p1.getStrength() < 37);
-            assertTrue("evade", p1.getEvade() >= 3 && p1.getEvade() <= 5);
-            assertTrue("intelligence", p1.getIntelligence() >= 5 && p1.getIntelligence() <= 39);
-
+            assertTrue("Health:", p1.getHealth() >= 15 && p1.getHealth() < 23);
+            assertTrue("Strenght:", p1.getStrength() >= 15 && p1.getStrength() < 37);
+            assertTrue("Evade:", p1.getEvade() >= 3 && p1.getEvade() <= 5);
+            assertTrue("Intelligence:", p1.getIntelligence() >= 5 && p1.getIntelligence() <= 39);
         }
 
     }
 
     /*
-     * TESTE 2:
-     * Warrior com valor 0 que pertence ao intervalo [0-10]
-     * Falha sempre pois o valor tem de ser positivo
+     * Teste do metodo createWarrior com o valor 0 pertencente ao
+     * intervalo [0-10]
+     * O teste falha sempre pois o valor tem de ser positivo
      */
     @Test
     public void testeWarrior2() {
@@ -79,8 +79,8 @@ public class PlayerTest {
     }
 
     /*
-     * TESTE 3:
-     * Warrior com valor 10 que pertence ao intervalo [0-10]
+     * Teste do metodo createWarrior com o valor 10 pertencente ao
+     * intervalo [0-10]
      */
     @Test
     public void testeWarrior3() {
@@ -91,16 +91,16 @@ public class PlayerTest {
 
             p3.createWarrior(10);
 
-            assertTrue("health", p3.getHealth() >= 15 && p3.getHealth() < 30);
+            assertTrue("Health:", p3.getHealth() >= 15 && p3.getHealth() < 30);
             assertTrue("Strenght", p3.getStrength() >= 15 && p3.getStrength() <= 43);
-            assertTrue("evade", p3.getEvade() >= 10 && p3.getEvade() <= 19);
-            assertTrue("intelligence", p3.getIntelligence() >= 5 && p3.getIntelligence() <= 45);
+            assertTrue("Evade:", p3.getEvade() >= 10 && p3.getEvade() <= 19);
+            assertTrue("Intelligence:", p3.getIntelligence() >= 5 && p3.getIntelligence() <= 45);
         }
     }
 
     /*
-     * TESTE 4:
-     * Warrior com valor 15 que nao pertence ao intervalo [0-10]
+     * Teste do metodo createWarrior com o valor 15 nao pertencente ao
+     * intervalo [0-10]
      */
     @Test
     public void testeWarrior4() {
@@ -111,16 +111,16 @@ public class PlayerTest {
 
             p4.createWarrior(15);
 
-            assertTrue("Health", p4.getHealth() >= 15 && p4.getHealth() < 23);
-            assertTrue("Strenght", p4.getStrength() >= 15 && p4.getStrength() <= 41);
-            assertTrue("Evade", p4.getEvade() >= 3 && p4.getEvade() <= 5);
-            assertTrue("Intelligence ", p4.getIntelligence() >= 5 && p4.getIntelligence() <= 40);
+            assertTrue("Health:", p4.getHealth() >= 15 && p4.getHealth() < 23);
+            assertTrue("Strenght:", p4.getStrength() >= 15 && p4.getStrength() <= 41);
+            assertTrue("Evade:", p4.getEvade() >= 3 && p4.getEvade() <= 5);
+            assertTrue("Intelligence:", p4.getIntelligence() >= 5 && p4.getIntelligence() <= 40);
         }
     }
 
     /*
-     * TESTE 5:
-     * Thief com valor -1 que não pertence ao intervalo [0-5]
+     * Teste do metodo createThief com o valor -1 nao pertencente ao
+     * intervalo [0-5]
      */
     @Test
     public void testThief1() {
@@ -129,22 +129,17 @@ public class PlayerTest {
         for (int i = 0; i < 100; i++) {
 
             p5.createThief(-1);
-            /* anterior
-            assertTrue("vida", p5.getHealth() >= 1 && p5.getHealth() <= 5);
-            assertTrue("força" ,p5.getStrength() >= 6 && p5.getStrength() <= 10);
-            assertTrue("inteligencia", p5.getIntelligence() == 5);
-            assertTrue("evade",p5.getEvade() >= 1 && p5.getEvade() <= 101);
-             */
-            assertTrue("Health", p5.getHealth() >= 1 && p5.getHealth() <= 6);
-            assertTrue("Strenght", p5.getStrength() >= 6 && p5.getStrength() <= 10);
-            assertTrue("Intelligence", p5.getIntelligence() == 5);
-            assertTrue("Evade", p5.getEvade() >= 1 && p5.getEvade() <= 101);
+            
+            assertTrue("Health:", p5.getHealth() >= 1 && p5.getHealth() <= 6);
+            assertTrue("Strenght:", p5.getStrength() >= 6 && p5.getStrength() <= 10);
+            assertTrue("Intelligence:", p5.getIntelligence() == 5);
+            assertTrue("Evade:", p5.getEvade() >= 1 && p5.getEvade() <= 101);
         }
     }
 
     /*
-     * TESTE 6:
-     * Thief com valor 0 que pertence ao intervalo [0-5]
+     * Teste do metodo createThief com o valor 0 pertencente ao
+     * intervalo [0-5]
      */
     @Test
     public void testThief2() {
@@ -154,16 +149,16 @@ public class PlayerTest {
 
             p6.createThief(0);
 
-            assertTrue("Health ", p6.getHealth() >= 0 && p6.getHealth() <= 4);
-            assertTrue("Strenght ", p6.getStrength() >= 5 && p6.getStrength() <= 9);
-            assertTrue(" Intelligence ", p6.getIntelligence() == 5);
-            assertTrue("Evade ", p6.getEvade() >= 0 && p6.getEvade() <= 100);
+            assertTrue("Health:", p6.getHealth() >= 0 && p6.getHealth() <= 4);
+            assertTrue("Strenght:", p6.getStrength() >= 5 && p6.getStrength() <= 9);
+            assertTrue("Intelligence:", p6.getIntelligence() == 5);
+            assertTrue("Evade:", p6.getEvade() >= 0 && p6.getEvade() <= 100);
         }
     }
 
     /*
-     * TESTE 7:
-     * Thief com valor 5 que pertence ao intervalo [0-5]
+     * Teste do metodo createThief com o valor 5 pertencente ao
+     * intervalo [0-5]
      */
     @Test
     public void testThief3() {
@@ -172,20 +167,17 @@ public class PlayerTest {
         for (int i = 0; i < 100; i++) {
             p7.createThief(5);
 
-            /* assertTrue("vida",p7.getHealth() >= 5 && p7.getHealth() <= 9);
-            assertTrue("força",p7.getStrength() >= 10 && p7.getStrength() <= 14);
-            assertTrue("inteligencia", p7.getIntelligence() == 5);
-            assertTrue("evade",p7.getEvade() >= 5 && p7.getEvade() <= 105);*/
-            assertTrue("Health", p7.getHealth() >= 5 && p7.getHealth() <= 14);
-            assertTrue("Strenght", p7.getStrength() >= 10 && p7.getStrength() <= 14);
-            assertTrue("Intelligence", p7.getIntelligence() == 5);
-            assertTrue("Evade", p7.getEvade() >= 5 && p7.getEvade() <= 105);
+            
+            assertTrue("Health:", p7.getHealth() >= 5 && p7.getHealth() <= 14);
+            assertTrue("Strenght:", p7.getStrength() >= 10 && p7.getStrength() <= 14);
+            assertTrue("Intelligence:", p7.getIntelligence() == 5);
+            assertTrue("Evade:", p7.getEvade() >= 5 && p7.getEvade() <= 105);
         }
     }
 
     /*
-     * TESTE 8:
-     * Thief com valor 7 que nao pertence ao intervalo [0-5]
+     * Teste do metodo createThief com o valor 7 nao pertencente ao
+     * intervalo [0-5]
      */
     @Test
     public void testThief4() {
@@ -194,23 +186,16 @@ public class PlayerTest {
         for (int i = 0; i < 100; i++) {
             p8.createThief(7);
 
-            /* Anterior
-            assertTrue(p8.getHealth() >= 1 && p8.getHealth() <= 5);
-            assertTrue(p8.getStrength() >= 6 && p8.getStrength() <= 10);
-            assertTrue(p8.getIntelligence() == 5);
-            assertTrue(p8.getEvade() >= 1 && p8.getEvade() <= 101);*/
-            assertTrue("Health", p8.getHealth() >= 1 && p8.getHealth() <= 6);
-            assertTrue("Strenght ", p8.getStrength() >= 6 && p8.getStrength() <= 10);
-            assertTrue("Intelligence", p8.getIntelligence() == 5);
-            assertTrue("Evade ", p8.getEvade() >= 1 && p8.getEvade() <= 101);
+            assertTrue("Health:", p8.getHealth() >= 1 && p8.getHealth() <= 6);
+            assertTrue("Strenght:", p8.getStrength() >= 6 && p8.getStrength() <= 10);
+            assertTrue("Intelligence:", p8.getIntelligence() == 5);
+            assertTrue("Evade:", p8.getEvade() >= 1 && p8.getEvade() <= 101);
 
         }
     }
 
     /**
-     *
-     * health min = 10 max = 14 intelligence min=20 max =29 evade min = 5 max =9
-     *
+     * Teste do metodo createMage 
      */
     @Test
     public void testMage1() {
@@ -219,33 +204,31 @@ public class PlayerTest {
         for (int i = 0; i < 100; i++) {
             p9.createMage();
 
-            assertTrue("Health", p9.getHealth() >= 10 && p9.getHealth() <= 14);
-            assertTrue("Strenght", p9.getStrength() >= 5 && p9.getStrength() <= 9);
-            assertTrue("Intelligence ", p9.getIntelligence() >= 20 && p9.getIntelligence() <= 29);
-            assertTrue("Evade", p9.getEvade() >= 5 && p9.getEvade() <= 9);
+            assertTrue("Health:", p9.getHealth() >= 10 && p9.getHealth() <= 14);
+            assertTrue("Strenght:", p9.getStrength() >= 5 && p9.getStrength() <= 9);
+            assertTrue("Intelligence:", p9.getIntelligence() >= 20 && p9.getIntelligence() <= 29);
+            assertTrue("Evade:", p9.getEvade() >= 5 && p9.getEvade() <= 9);
         }
-
     }
 
     /**
-     * Test of displayAttributes method, of class Player. Teste que nao "testa"
-     * a classe mas apenas passa pela classe
+     * Teste do metodo displayAttributes
      */
     @Test
     public void testDisplayAttributes() {
 
-        System.out.println("displayAttributes");
+        
         Player instance = new Player();
         instance.displayAttributes();
 
     }
 
     /**
-     * Test of getEvade method, of class Player.
+     * Teste do metodo getEvade
      */
     @Test
     public void testGetEvade() {
-        System.out.println("getEvade");
+        
         for (int i = 0; i < 100; i++) {
             Player p1 = new Player();
             p1.setEvade(i);
@@ -255,11 +238,11 @@ public class PlayerTest {
     }
 
     /**
-     * Test of getIntelligence method, of class Player.
+     * Teste do metodo getIntelligence
      */
     @Test
     public void testGetIntelligence() {
-        System.out.println("getIntelligence");
+        
         for (int i = 0; i < 100; i++) {
             Player p1 = new Player();
             p1.setIntelligence(i);
@@ -270,12 +253,11 @@ public class PlayerTest {
     }
 
     /**
-     * Test of setEvade method, of class Player.
+     * Teste do metodo setEvade
      */
     @Test
     public void testSetEvade() {
-        System.out.println("setEvade");
-
+    
         for (int i = 0; i < 100; i++) {
             Player p1 = new Player();
             p1.setEvade(i);
@@ -285,12 +267,12 @@ public class PlayerTest {
     }
 
     /**
-     * Test of setIntelligence method, of class Player.
+     * Teste do metodo setIntelligence
      * 
      */
     @Test
     public void testSetIntelligence() {
-        System.out.println("setIntelligence");
+        
         for (int i = 0; i < 50; i++) {
             Player p1 = new Player();
             p1.setIntelligence(i);

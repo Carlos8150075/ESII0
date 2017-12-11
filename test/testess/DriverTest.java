@@ -60,6 +60,7 @@ public class DriverTest {
      */
     @Test
     public void testVerificarCiclo() {
+        
         Player p9 = new Player();
         p9.createWarrior(10);
         Boss boss1 = new Boss(p9);
@@ -73,6 +74,7 @@ public class DriverTest {
      */
     @Test
     public void testPhysicAttackPlayer() {
+        
         Player p9 = new Player();
         p9.createWarrior(10);
         Boss boss1 = new Boss(p9);
@@ -90,6 +92,7 @@ public class DriverTest {
      */
     @Test
     public void testMagicAttackPlayer() {
+        
         Player p9 = new Player();
         p9.createWarrior(10);
         Boss boss1 = new Boss(p9);
@@ -131,6 +134,7 @@ public class DriverTest {
      */
     @Test
     public void testFleaTurnoMenor3() {
+        
         Player p9 = new Player();
         Boss boss1 = new Boss(p9);
         for (int i = 0; i <= 3; i++) {
@@ -147,7 +151,6 @@ public class DriverTest {
     @Test
     public void testFleaTurnoMaior3() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
         Boss boss1 = new Boss(p9);
         for (int i = 4; i <= 100; i++) {
@@ -162,7 +165,6 @@ public class DriverTest {
     @Test
     public void testEscolherAtack1() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
         p9.createWarrior(10);
 
@@ -178,7 +180,6 @@ public class DriverTest {
     @Test
     public void testEscolherAtack2() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
         p9.createWarrior(10);
 
@@ -283,7 +284,6 @@ public class DriverTest {
     @Test
     public void testEscolherClasseInvalida() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
 
         Driver.escolherClasse(4, p9);
@@ -296,7 +296,6 @@ public class DriverTest {
     @Test
     public void testMortePlayer() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
         p9.createWarrior(10);
 
@@ -314,7 +313,6 @@ public class DriverTest {
     @Test
     public void testMortePlayerMaisQueTurno3() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
         p9.createWarrior(10);
 
@@ -332,7 +330,6 @@ public class DriverTest {
     @Test
     public void testMorteBoss() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
         p9.createWarrior(10);
 
@@ -348,7 +345,6 @@ public class DriverTest {
     @Test
     public void testAumentarVida() {
 
-        //perguntar para numero negativos
         Player p9 = new Player();
         Player p8 = new Player();
 
