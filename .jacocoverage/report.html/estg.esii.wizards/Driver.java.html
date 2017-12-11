@@ -119,23 +119,28 @@ import java.util.*;
 
 <span class="fc" id="L120">    }</span>
 
+    /**
+     * metodo que permite ao jogador escolher a classe com que quer jogar
+     * @param escolha escolha do jogador
+     * @param player player
+     */
     public static void escolherClasse(int escolha, Player player) {
-<span class="fc bfc" id="L123" title="All 2 branches covered.">        if (escolha == 1) {</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">        if (escolha == 1) {</span>
             //create warrior
-<span class="fc" id="L125">            player.createWarrior(5);</span>
+<span class="fc" id="L130">            player.createWarrior(5);</span>
 
-<span class="fc bfc" id="L127" title="All 2 branches covered.">        } else if (escolha == 2) {</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        } else if (escolha == 2) {</span>
             //create mage
-<span class="fc" id="L129">            player.createMage();</span>
+<span class="fc" id="L134">            player.createMage();</span>
 
-<span class="fc bfc" id="L131" title="All 2 branches covered.">        } else if (escolha == 3) {</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        } else if (escolha == 3) {</span>
             //create thief
-<span class="fc" id="L133">            player.createThief(100);</span>
+<span class="fc" id="L138">            player.createThief(100);</span>
 
         } else {
-<span class="fc" id="L136">            System.out.println(&quot;Out of range&quot;);</span>
+<span class="fc" id="L141">            System.out.println(&quot;Out of range&quot;);</span>
         }
-<span class="fc" id="L138">    }</span>
+<span class="fc" id="L143">    }</span>
 
     /**
      * increase health every 2 turns
@@ -145,23 +150,29 @@ import java.util.*;
      */
     public static void aumentarVida(Player player, int turn) {
         //increase health every 2 turns
-<span class="fc bfc" id="L148" title="All 2 branches covered.">        if ((turn % 2) == 0) {</span>
-<span class="fc" id="L149">            player.setHealth(player.getHealth() + 10);</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">        if ((turn % 2) == 0) {</span>
+<span class="fc" id="L154">            player.setHealth(player.getHealth() + 10);</span>
         }
 
-<span class="fc" id="L152">    }</span>
+<span class="fc" id="L157">    }</span>
 
+    /**
+     * Metodo que verifica se o boos ou o player ainda estao vivos e imprime no ecra o resultado
+     * @param turn turno do jogo
+     * @param player player a testar 
+     * @param boss1 boss a testar
+     */
     public static void verificarVida(int turn, Player player, Boss boss1) {
-<span class="fc bfc" id="L155" title="All 2 branches covered.">        if (player.getHealth() &lt;= 0) {</span>
-<span class="fc" id="L156">            System.out.println(&quot;YOU DIED&quot;);</span>
-<span class="pc bpc" id="L157" title="1 of 2 branches missed.">            if (turn &lt;= 3) {</span>
-<span class="fc" id="L158">                System.out.println(&quot;lol git gud&quot;);</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        if (player.getHealth() &lt;= 0) {</span>
+<span class="fc" id="L167">            System.out.println(&quot;YOU DIED&quot;);</span>
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">            if (turn &lt;= 3) {</span>
+<span class="fc" id="L169">                System.out.println(&quot;lol git gud&quot;);</span>
             }
 
-<span class="pc bpc" id="L161" title="1 of 2 branches missed.">        } else if (boss1.getHealth() &lt;= 0) {</span>
-<span class="nc" id="L162">            System.out.printf(&quot;You won the game in %d turns!&quot;, turn);</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">        } else if (boss1.getHealth() &lt;= 0) {</span>
+<span class="nc" id="L173">            System.out.printf(&quot;You won the game in %d turns!&quot;, turn);</span>
         }
-<span class="fc" id="L164">    }</span>
+<span class="fc" id="L175">    }</span>
 
     /**
      * metodo que verifica a vida do player e do boss e determina se o jogo
@@ -174,40 +185,40 @@ import java.util.*;
      */
     public static void verificarContinuidade(Player player, Boss boss1, int turn) {
         //keep playing while player and boss still alive
-<span class="fc" id="L177">        Scanner input = new Scanner(System.in);</span>
-<span class="fc" id="L178">        int escolha = -1;</span>
+<span class="fc" id="L188">        Scanner input = new Scanner(System.in);</span>
+<span class="fc" id="L189">        int escolha = -1;</span>
 
-<span class="pc bpc" id="L180" title="1 of 4 branches missed.">        while (player.getHealth() &gt; 0 &amp;&amp; boss1.getHealth() &gt; 0) {</span>
-<span class="fc" id="L181">            System.out.println(&quot;------------------------------&quot;);</span>
-<span class="fc" id="L182">            System.out.println(&quot;\nTURN: &quot; + turn);</span>
+<span class="pc bpc" id="L191" title="1 of 4 branches missed.">        while (player.getHealth() &gt; 0 &amp;&amp; boss1.getHealth() &gt; 0) {</span>
+<span class="fc" id="L192">            System.out.println(&quot;------------------------------&quot;);</span>
+<span class="fc" id="L193">            System.out.println(&quot;\nTURN: &quot; + turn);</span>
 
-<span class="fc" id="L184">            flea(turn, player, boss1);</span>
-<span class="fc" id="L185">            boss1.displayAttributes();</span>
-<span class="fc" id="L186">            player.displayAttributes();</span>
-<span class="fc" id="L187">            System.out.println(&quot;NOTE: every 2 turns survived increases your HP&quot;);</span>
+<span class="fc" id="L195">            flea(turn, player, boss1);</span>
+<span class="fc" id="L196">            boss1.displayAttributes();</span>
+<span class="fc" id="L197">            player.displayAttributes();</span>
+<span class="fc" id="L198">            System.out.println(&quot;NOTE: every 2 turns survived increases your HP&quot;);</span>
 
-<span class="fc" id="L189">            System.out.println(&quot;\n1| Physical Attack\n&quot;</span>
+<span class="fc" id="L200">            System.out.println(&quot;\n1| Physical Attack\n&quot;</span>
                     + &quot;2| Magical Attack\n&quot;
                     + &quot;3| Quit game&quot;);
-<span class="fc" id="L192">            System.out.print(&quot;Enter a choice: &quot;);</span>
+<span class="fc" id="L203">            System.out.print(&quot;Enter a choice: &quot;);</span>
 
-<span class="pc bpc" id="L194" title="1 of 2 branches missed.">            while (!input.hasNextInt()) {</span>
-<span class="nc" id="L195">                input.next();</span>
-<span class="nc" id="L196">                System.out.print(&quot;Enter a valid integer: &quot;);</span>
+<span class="pc bpc" id="L205" title="1 of 2 branches missed.">            while (!input.hasNextInt()) {</span>
+<span class="nc" id="L206">                input.next();</span>
+<span class="nc" id="L207">                System.out.print(&quot;Enter a valid integer: &quot;);</span>
             }
-<span class="nc" id="L198">            escolha = input.nextInt();</span>
+<span class="nc" id="L209">            escolha = input.nextInt();</span>
 
             //utilizador escolhe o tipo de ataque
-<span class="nc" id="L201">            escolherAtaque(escolha, player, boss1);</span>
+<span class="nc" id="L212">            escolherAtaque(escolha, player, boss1);</span>
 
             //increase health every 2 turns
-<span class="nc" id="L204">            aumentarVida(player, turn);</span>
-<span class="nc" id="L205">            turn++;</span>
+<span class="nc" id="L215">            aumentarVida(player, turn);</span>
+<span class="nc" id="L216">            turn++;</span>
         }
 
-<span class="fc" id="L208">        verificarVida(turn, player, boss1);</span>
+<span class="fc" id="L219">        verificarVida(turn, player, boss1);</span>
 
-<span class="fc" id="L210">    }</span>
+<span class="fc" id="L221">    }</span>
 
     /**
      * //ask user for class selection
@@ -216,27 +227,27 @@ import java.util.*;
      * @param player jogador
      */
     public static void promptClassSelection(Scanner input, Player player) {
-<span class="fc" id="L219">        int escolha = -1;</span>
+<span class="fc" id="L230">        int escolha = -1;</span>
         while (true) {
 
-<span class="fc" id="L222">            System.out.println(&quot;1| Select Warrior Class\n&quot;</span>
+<span class="fc" id="L233">            System.out.println(&quot;1| Select Warrior Class\n&quot;</span>
                     + &quot;2| Select Mage Class\n&quot;
                     + &quot;3| Select Thief Class&quot;);
 
-<span class="fc" id="L226">            System.out.print(&quot;Enter a choice: &quot;);</span>
+<span class="fc" id="L237">            System.out.print(&quot;Enter a choice: &quot;);</span>
 
             //check if integer input
-<span class="pc bpc" id="L229" title="1 of 2 branches missed.">            while (!input.hasNextInt()) {</span>
-<span class="nc" id="L230">                input.next();</span>
-<span class="nc" id="L231">                System.out.print(&quot;Enter a valid integer: &quot;);</span>
+<span class="pc bpc" id="L240" title="1 of 2 branches missed.">            while (!input.hasNextInt()) {</span>
+<span class="nc" id="L241">                input.next();</span>
+<span class="nc" id="L242">                System.out.print(&quot;Enter a valid integer: &quot;);</span>
             }
 
-<span class="nc" id="L234">            escolha = input.nextInt();</span>
+<span class="nc" id="L245">            escolha = input.nextInt();</span>
 
-<span class="nc" id="L236">            escolherClasse(escolha, player);</span>
+<span class="nc" id="L247">            escolherClasse(escolha, player);</span>
             break;
         }
-<span class="nc" id="L239">    }</span>
+<span class="nc" id="L250">    }</span>
 
     /**
      * metodo main
@@ -244,7 +255,7 @@ import java.util.*;
      * @param args argumentos
      */
     public static void main(String[] args) {
-<span class="nc" id="L247">        criarJogo();</span>
-<span class="nc" id="L248">    }</span>
+<span class="nc" id="L258">        criarJogo();</span>
+<span class="nc" id="L259">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

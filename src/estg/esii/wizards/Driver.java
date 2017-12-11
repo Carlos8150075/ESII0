@@ -119,6 +119,11 @@ public class Driver {
 
     }
 
+    /**
+     * metodo que permite ao jogador escolher a classe com que quer jogar
+     * @param escolha escolha do jogador
+     * @param player player
+     */
     public static void escolherClasse(int escolha, Player player) {
         if (escolha == 1) {
             //create warrior
@@ -151,6 +156,12 @@ public class Driver {
 
     }
 
+    /**
+     * Metodo que verifica se o boos ou o player ainda estao vivos e imprime no ecra o resultado
+     * @param turn turno do jogo
+     * @param player player a testar 
+     * @param boss1 boss a testar
+     */
     public static void verificarVida(int turn, Player player, Boss boss1) {
         if (player.getHealth() <= 0) {
             System.out.println("YOU DIED");
