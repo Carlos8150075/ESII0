@@ -40,20 +40,38 @@ public class BossTest {
     }
 
     /**
-     * Testa se o ataque do boss esta a funcionar se a sua accuracy for de 
-     * 100 e se a vida do player diminui quando é atacado
+     * Testa se o ataque do boss esta a funcionar se a sua accuracy for de 100 e
+     * se a vida do player diminui quando é atacado
      */
     @Test
     public void testBossAttack() {
 
-            Player p1 = new Player();
-            p1.createWarrior(10);
-            Boss boss1 = new Boss(p1);
-            int n = p1.getHealth();
-            boss1.setAccuracy(100);
-            boss1.bossAttack(p1);
+        Player p1 = new Player();
+        p1.createWarrior(10);
+        Boss boss1 = new Boss(p1);
+        int n = p1.getHealth();
+        boss1.setAccuracy(100);
+        boss1.bossAttack(p1);
 
-            assertEquals(p1.getHealth(), n - boss1.getStrength());
+        assertEquals(p1.getHealth(), n - boss1.getStrength());
+
+    }
+
+    /**
+     * Testa se o ataque do boss esta a funcionar se a sua accuracy for de 0 o
+     * player nao leva dano
+     */
+    @Test
+    public void testBossAttackFail() {
+
+        Player p1 = new Player();
+        p1.createWarrior(10);
+        Boss boss1 = new Boss(p1);
+        int n = p1.getHealth();
+        boss1.setAccuracy(0);
+        boss1.bossAttack(p1);
+
+        assertNotEquals(p1.getHealth(), n - boss1.getStrength());
 
     }
 
