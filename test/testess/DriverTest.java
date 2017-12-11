@@ -40,10 +40,11 @@ public class DriverTest {
     @After
     public void tearDown() {
     }
-     /**
-      * Teste que permite criar um jogo e falha porque nao é permitido 
-      * introduzir os inputs nos testes
-      */
+
+    /**
+     * Teste que permite criar um jogo e falha porque nao é permitido introduzir
+     * os inputs nos testes
+     */
     @Test
     public void testCriarJogo() {
 
@@ -52,15 +53,15 @@ public class DriverTest {
         Driver.criarJogo();
 
     }
-    
+
     /**
-     * Teste que permite entrar na função verificarContinuidade e
-     * falha porque não é permitido introduzir os inputs nos testes
-     * 
+     * Teste que permite entrar na função verificarContinuidade e falha porque
+     * não é permitido introduzir os inputs nos testes
+     *
      */
     @Test
     public void testVerificarCiclo() {
-        
+
         Player p9 = new Player();
         p9.createWarrior(10);
         Boss boss1 = new Boss(p9);
@@ -74,25 +75,23 @@ public class DriverTest {
      */
     @Test
     public void testPhysicAttackPlayer() {
-        
+
         Player p9 = new Player();
         p9.createWarrior(10);
         Boss boss1 = new Boss(p9);
         int n = boss1.getHealth();
 
         Driver.physicalAttack(p9, boss1);
-
-        assertEquals(p9.getStrength(), n - boss1.getHealth());
-
+        assertEquals(boss1.getHealth(), n - p9.getStrength());
     }
-    
+
     /**
      * Teste que permite testar o metodo de ataque magico do Player e se este
      * tirou o respectivo dano
      */
     @Test
     public void testMagicAttackPlayer() {
-        
+
         Player p9 = new Player();
         p9.createWarrior(10);
         Boss boss1 = new Boss(p9);
@@ -100,41 +99,17 @@ public class DriverTest {
 
         Driver.magicalAttack(p9, boss1);
 
-        assertEquals(p9.getIntelligence(), n - boss1.getHealth());
+        assertEquals(boss1.getHealth(), n - p9.getIntelligence());
 
     }
 
-    /*
-    @Test
-    public void testPhysicAttackBoss() {
-        Player p9 = new Player();
-        Boss boss1 = new Boss(p9);
-        int n= boss1.getHealth();
-
-        Driver.physicalAttack(p9, boss1);
-        
-        assertEquals(p9.getStrength(),n-boss1.getHealth());
-
-    }
-
-    @Test
-    public void testMagicAttackBoss() {
-        Player p9 = new Player();
-        Boss boss1 = new Boss(p9);
-        int n= boss1.getHealth();
-        Driver.magicalAttack(p9, boss1);
-        assertEquals(p9.getIntelligence(),n-boss1.getHealth());
-
-    }
-     */
-    
     /**
-     * Teste que permite testar o metodo flea quando o turno de jogo
-     * é inferior ou igual a 3
+     * Teste que permite testar o metodo flea quando o turno de jogo é inferior
+     * ou igual a 3
      */
     @Test
     public void testFleaTurnoMenor3() {
-        
+
         Player p9 = new Player();
         Boss boss1 = new Boss(p9);
         for (int i = 0; i <= 3; i++) {
@@ -145,8 +120,8 @@ public class DriverTest {
     }
 
     /**
-     * Teste que permite verificar o metodo flea quando o turno de jogo
-     * é maior que 3
+     * Teste que permite verificar o metodo flea quando o turno de jogo é maior
+     * que 3
      */
     @Test
     public void testFleaTurnoMaior3() {
@@ -160,7 +135,8 @@ public class DriverTest {
     }
 
     /**
-     * Teste que permite testar se o Utilizador escolhe o physicalAttack 
+     * Teste que permite testar se o Utilizador escolhe o physicalAttack
+     * e se este tira o respectivo dano
      */
     @Test
     public void testEscolherAtack1() {
@@ -169,13 +145,16 @@ public class DriverTest {
         p9.createWarrior(10);
 
         Boss boss1 = new Boss(p9);
+         int n = boss1.getHealth();
 
         Driver.escolherAtaque(1, p9, boss1);
+        
+         assertEquals(boss1.getHealth(), n - p9.getStrength());
 
     }
 
     /**
-     * Teste que permite testar se o Utilizador escolhe o magicAttack 
+     * Teste que permite testar se o Utilizador escolhe o magicAttack
      */
     @Test
     public void testEscolherAtack2() {
@@ -185,15 +164,18 @@ public class DriverTest {
 
         Boss boss1 = new Boss(p9);
 
+        int n = boss1.getHealth();
+
         Driver.escolherAtaque(2, p9, boss1);
+
+        assertEquals(boss1.getHealth(), n - p9.getIntelligence());
 
     }
 
-     
     /**
-     * Teste que permite testar se o Utilizador vai escolher a opçao de desistir, 
-     * o teste esta em comentario porque o teste falha e não deixa os outros testes
-     * correrem
+     * Teste que permite testar se o Utilizador vai escolher a opçao de
+     * desistir, o teste esta em comentario porque o teste falha e não deixa os
+     * outros testes correrem
      */
     /*
     @Test
@@ -208,7 +190,6 @@ public class DriverTest {
         Driver.escolherAtaque(3, p9, boss1);
 
     }*/
-    
     /**
      * Teste que permite testar se o Utilizador ao escolher uma opção invalida ,
      * o programa irá pedir uma nova escolha
@@ -226,8 +207,9 @@ public class DriverTest {
     }
 
     /**
-     * Teste que permite testar se o utilizador ao escolher a classe que pretende
-     * , os stats do jogador vao corresponder aos da classe que escolheu
+     * Teste que permite testar se o utilizador ao escolher a classe que
+     * pretende , os stats do jogador vao corresponder aos da classe que
+     * escolheu
      */
     @Test
     public void testEscolherClasse1() {
@@ -244,8 +226,9 @@ public class DriverTest {
     }
 
     /**
-     * Teste que permite testar se o utilizador ao escolher a classe que pretende
-     * , os stats do jogador vao corresponder aos da classe que escolheu
+     * Teste que permite testar se o utilizador ao escolher a classe que
+     * pretende , os stats do jogador vao corresponder aos da classe que
+     * escolheu
      */
     @Test
     public void testEscolherClasse2() {
@@ -253,16 +236,17 @@ public class DriverTest {
         Player p9 = new Player();
         Driver.escolherClasse(2, p9);
 
-        assertTrue("Health",p9.getHealth() >= 10 && p9.getHealth() <= 14);
-        assertTrue("Strength",p9.getStrength() >= 5 && p9.getStrength() <= 9);
-        assertTrue("Intelligence",p9.getIntelligence() >= 20 && p9.getIntelligence() <= 29);
-        assertTrue("Evade",p9.getEvade() >= 5 && p9.getEvade() <= 9);
+        assertTrue("Health", p9.getHealth() >= 10 && p9.getHealth() <= 14);
+        assertTrue("Strength", p9.getStrength() >= 5 && p9.getStrength() <= 9);
+        assertTrue("Intelligence", p9.getIntelligence() >= 20 && p9.getIntelligence() <= 29);
+        assertTrue("Evade", p9.getEvade() >= 5 && p9.getEvade() <= 9);
 
     }
 
     /**
-     * Teste que permite testar se o utilizador ao escolher a classe que pretende
-     * , os stats do jogador vao corresponder aos da classe que escolheu
+     * Teste que permite testar se o utilizador ao escolher a classe que
+     * pretende , os stats do jogador vao corresponder aos da classe que
+     * escolheu
      */
     @Test
     public void testEscolherClasse3() {
@@ -270,23 +254,29 @@ public class DriverTest {
         Player p8 = new Player();
         Driver.escolherClasse(3, p8);
 
-        assertTrue("Health",p8.getHealth() >= 1 && p8.getHealth() <= 6);
-        assertTrue("Strength",p8.getStrength() >= 6 && p8.getStrength() <= 10);
-        assertTrue("Intelligence",p8.getIntelligence() == 5);
-        assertTrue("Evade",p8.getEvade() >= 1 && p8.getEvade() <= 101);
+        assertTrue("Health", p8.getHealth() >= 1 && p8.getHealth() <= 6);
+        assertTrue("Strength", p8.getStrength() >= 6 && p8.getStrength() <= 10);
+        assertTrue("Intelligence", p8.getIntelligence() == 5);
+        assertTrue("Evade", p8.getEvade() >= 1 && p8.getEvade() <= 101);
 
     }
 
     /**
-     * Teste que permite testar se o utilizador ao escolher a classe que pretende
-     * , os stats do jogador vao corresponder aos da classe que escolheu
+     * Teste que permite testar se o utilizador ao escolher a classe que
+     * pretende , os stats do jogador vao corresponder aos da classe que
+     * escolheu neste teste a escolha é invalida
      */
     @Test
     public void testEscolherClasseInvalida() {
 
-        Player p9 = new Player();
+        Player p3 = new Player();
 
-        Driver.escolherClasse(4, p9);
+        Driver.escolherClasse(4, p3);
+
+        assertFalse("Health", p3.getHealth() >= 15 && p3.getHealth() < 30);
+        assertFalse("Strenght", p3.getStrength() >= 15 && p3.getStrength() <= 43);
+        assertFalse("Evade", p3.getEvade() >= 5 && p3.getEvade() <= 9);
+        assertFalse("Intelligence", p3.getIntelligence() >= 5 && p3.getIntelligence() <= 45);
 
     }
 
@@ -294,21 +284,21 @@ public class DriverTest {
      * Teste que permite testar se o Player morre quando a sua vida é 0
      */
     @Test
-    public void testMortePlayer() {
+    public void testMorte() {
 
         Player p9 = new Player();
         p9.createWarrior(10);
 
         Boss boss1 = new Boss(p9);
 
-        p9.setHealth(0);
-
         Driver.verificarVida(1, p9, boss1);
+        
+        
 
     }
 
     /**
-     * Teste que permite verificar se o Player morre
+     * Teste que permite correr a funçao que verifica se o player
      */
     @Test
     public void testMortePlayerMaisQueTurno3() {
@@ -319,23 +309,8 @@ public class DriverTest {
         Boss boss1 = new Boss(p9);
 
         p9.setHealth(0);
-//acabar em casa
+
         Driver.verificarVida(3, p9, boss1);
-
-    }
-
-    /**
-     * Teste que permite verificar a morte do Boss
-     */
-    @Test
-    public void testMorteBoss() {
-
-        Player p9 = new Player();
-        p9.createWarrior(10);
-
-        Boss boss1 = new Boss(p9);
-        boss1.setHealth(0);
-        Driver.verificarVida(1, p9, boss1);
 
     }
 
@@ -356,7 +331,7 @@ public class DriverTest {
     }
 
     /**
-     * Teste que permite verificar de o aumento de vida do Player falha
+     * Teste que permite verificar de o aumento de vida do Player falha se o turno for par
      */
     @Test
     public void testAumentarVidaFail() {
@@ -380,6 +355,7 @@ public class DriverTest {
         Player p9 = new Player();
 
         Driver.criarBoss(p9, 0);
+        
 
     }
 }
